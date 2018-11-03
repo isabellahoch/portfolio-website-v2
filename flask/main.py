@@ -22,9 +22,10 @@ import datetime
 
 from forms import ContactForm
 
+app = Flask(__name__)
+
 app.config['SECRET_KEY'] = os.urandom(24)
 
-app = Flask(__name__)
 
 @app.errorhandler(404)
 def page_not_found(e):
