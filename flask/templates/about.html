@@ -1,27 +1,19 @@
 {% extends "base.html" %}
-{% block title %}UHS Baking Club | About Us{% endblock %}
+{% block title %}Isabella Hochschild | About{% endblock %}
 {% block aboutisactive %}active{% endblock %}
-{% block heading %}About Us{% endblock %}
 {% block content %}
 <div class="container">
 	<div class="row about-row">
-		<h2 class="wide-heading" style="padding-bottom:15px;">Our Story</h2>
-		<p>Inspired by a love of food and baking, we decided to start a baking club at UHS.</p>
+		<h2 class="wide-heading" style="padding-bottom:15px;">About Me</h2>
+		<p>I'm a sophomore at University High School in SF and my interests include coding, track, XC, and baking.</p>
 	</div>
-	<div class="row about-row">
+<!-- 	<div class="row about-row">
 		<h2 class="wide-heading">Meet the Team</h2>
-	</div>
+	</div> -->
 	<div class="row">
-	    <div class="col-sm text-center">
-			<img src="{{ url_for('static', filename='img/profiles/mirabelle.jpg') }}" class="about-pics rounded-circle" id="mirabellepic" alt="Mirabelle" style="height: 175px;">
-			<h3><a class="link" href="/members/Mirabelle%20Brettkelly">Mirabelle ('21)</a></h3>
-			<h5>Co-President</h5>
-			<span>I'm Mirabelle!!</span>
-	    </div>
 		<div class="col-sm text-center">
-			<img src="{{ url_for('static', filename='img/profiles/isabella.png') }}" class="about-pics rounded-circle" id="isabellapic" alt="Isabella" style="height: 175px; width: 175px;">
-			<h3><a class="link" href="/members/Isabella%20Hochschild">Isabella ('21)</a></h3>
-			<h5>Co-President</h5>
+			<img src="http://incub8.herokuapp.com/static/img/profiles/isabella.png" class="about-pics rounded-circle" id="isabellapic" alt="Isabella" style="height: 175px; width: 175px;">
+			<h3><a class="link" href="/members/Isabella%20Hochschild">Isabella Hochschild</a></h3>
 			<span>Hey! I'm Isabella.</span>
 	    </div>
 	</div>
