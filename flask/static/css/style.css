@@ -11,10 +11,10 @@
 body {
   line-height: 1.5;
   font-size: 12px;
-}
+} 
 
 :root {
-    --main-color: #FFB6C1 !important; 
+    --main-color: #7D9EC0 !important; 
 }
 
 .wide-heading {
