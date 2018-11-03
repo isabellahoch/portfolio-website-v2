@@ -22,6 +22,8 @@ import datetime
 
 from forms import ContactForm
 
+app.config['SECRET_KEY'] = os.urandom(24)
+
 app = Flask(__name__)
 
 @app.errorhandler(404)
@@ -33,7 +35,6 @@ def page_not_found(e):
 
 @app.errorhandler(403)
 def page_forbidden(e):
-    form = RegForm()
     title = 'Forbidden'
     code = '403'
     message = "You do not have access to this page."
@@ -41,7 +42,6 @@ def page_forbidden(e):
 
 @app.errorhandler(500)
 def internal_server_error(e):
-    form = RegForm()
     title = 'Internal Server Error'
     code = '500'
     message = "The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application."
