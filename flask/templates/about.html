@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}UHS Baking Club | About Us{% endblock %}
+{% block aboutisactive %}active{% endblock %}
+{% block heading %}About Us{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="row about-row">
+		<h2 class="wide-heading" style="padding-bottom:15px;">Our Story</h2>
+		<p>Inspired by a love of food and baking, we decided to start a baking club at UHS.</p>
+	</div>
+	<div class="row about-row">
+		<h2 class="wide-heading">Meet the Team</h2>
+	</div>
+	<div class="row">
+	    <div class="col-sm text-center">
+			<img src="{{ url_for('static', filename='img/profiles/mirabelle.jpg') }}" class="about-pics rounded-circle" id="mirabellepic" alt="Mirabelle" style="height: 175px;">
+			<h3><a class="link" href="/members/Mirabelle%20Brettkelly">Mirabelle ('21)</a></h3>
+			<h5>Co-President</h5>
+			<span>I'm Mirabelle!!</span>
+	    </div>
+		<div class="col-sm text-center">
+			<img src="{{ url_for('static', filename='img/profiles/isabella.png') }}" class="about-pics rounded-circle" id="isabellapic" alt="Isabella" style="height: 175px; width: 175px;">
+			<h3><a class="link" href="/members/Isabella%20Hochschild">Isabella ('21)</a></h3>
+			<h5>Co-President</h5>
+			<span>Hey! I'm Isabella.</span>
+	    </div>
+	</div>
+</div>
+{% endblock %}
+{% block head %}
+<style>
+.row.about-row {
+    padding-left: 50px;
+    padding-bottom: 25px;
+}
+</style>
+{% endblock %}
