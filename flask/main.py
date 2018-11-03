@@ -26,14 +26,10 @@ app = Flask(__name__)
 
 @app.errorhandler(404)
 def page_not_found(e):
-    form = RegForm()
     title = 'Not Found'
     code = '404'
     message = "We can't seem to find the page you're looking for."
-    if (current_user.is_authenticated):
-        return render_template('error.html', code = code, message = message, title = title, name=current_user.email, logged_in=current_user.is_authenticated, form=form), 404
-    else:
-        return render_template('error.html', code = code, message = message, title = title, logged_in=current_user.is_authenticated, form=form), 404
+    return render_template('error.html', code = code, message = message, title = title), 404
 
 @app.errorhandler(403)
 def page_forbidden(e):
@@ -41,10 +37,7 @@ def page_forbidden(e):
     title = 'Forbidden'
     code = '403'
     message = "You do not have access to this page."
-    if (current_user.is_authenticated):
-        return render_template('error.html', code = code, message = message, title = title, name=current_user.email, logged_in=current_user.is_authenticated, form=form), 403
-    else:
-        return render_template('error.html', code = code, message = message, title = title, logged_in=current_user.is_authenticated, form=form), 403
+    return render_template('error.html', code = code, message = message, title = title), 403
 
 @app.errorhandler(500)
 def internal_server_error(e):
@@ -52,10 +45,7 @@ def internal_server_error(e):
     title = 'Internal Server Error'
     code = '500'
     message = "The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application."
-    if (current_user.is_authenticated):
-        return render_template('error.html', code = code, message = message, title = title, name=current_user.email, logged_in=current_user.is_authenticated, form=form), 500
-    else:
-        return render_template('error.html', code = code, message = message, title = title, logged_in=current_user.is_authenticated, form=form), 500
+    return render_template('error.html', code = code, message = message, title = title), 500
 
 @app.route('/')
 def index():
@@ -63,22 +53,17 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html', logged_in=current_user.is_authenticated)
+    return render_template('about.html')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
     if request.method == 'POST':
         if form.validate():
-            msg = Message(form.subject.data, sender='uhsbakingclub@gmail.com', recipients=['uhsbakingclub@gmail.com'])
-            msg.body = """
-            From: %s &lt;%s&gt;
-            %s
-            """ % (form.name.data, form.email.data, form.message.data)
-            #mail.send(msg)
-            return render_template('contact.html', post = 'yup', form = form, logged_in=current_user.is_authenticated)
+            print('hey')
+            return render_template('contact.html', post = 'yup', form = form)
     elif request.method == 'GET':
-        return render_template('contact.html', form = form, logged_in=current_user.is_authenticated)
+        return render_template('contact.html', form = form)
 
 @app.route('/sitemap.xml', methods=['GET'])
 def sitemap():
