@@ -7,7 +7,7 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/new_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Comfortaa|Lobster+Two|Luckiest+Guy|Poiret+One|Sigmar+One" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <style>
@@ -87,6 +87,7 @@
             #nav_list > li > a{
               display:inherit !important;
               color: #777;
+              background-color:inherit;
             }
             </style>
     {% block head %}{% endblock %}
@@ -108,7 +109,7 @@
         <a class="nav-link {% block aboutisactive %}{% endblock %}" href="/about">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% block porfolioisactive %}{% endblock %}" href="/portfolio">Portfolio</a>
+        <a class="nav-link {% block portfolioisactive %}{% endblock %}" href="/portfolio">Portfolio</a>
       </li>
       <li class="nav-item">
         <a class="nav-link {% block resumeisactive %}{% endblock %}" href="/resume">Resume</a>
