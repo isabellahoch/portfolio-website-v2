@@ -119,20 +119,20 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav" id="nav_list">
-      <li class="nav-item active">
-        <a class="nav-link {% block homeisactive %}{% endblock %}" href="/">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link {% block homeisactive %}{% endblock %}" href="/" id="home">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link {% block aboutisactive %}{% endblock %}" href="/about">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% block portfolioisactive %}{% endblock %}" href="/portfolio">Portfolio</a>
+        <a class="nav-link {% block portfolioisactive %}{% endblock %}" href="/portfolio" id="portfolio">Portfolio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% block resumeisactive %}{% endblock %}" href="/resume">Resume</a>
+        <a class="nav-link {% block resumeisactive %}{% endblock %}" href="/resume" id="resume">Resume</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% block contactisactive %}{% endblock %}" href="/contact">Contact</a>
+        <a class="nav-link {% block contactisactive %}{% endblock %}" href="/contact" id="contact">Contact</a>
       </li>
     </ul>
   </div>
@@ -203,6 +203,15 @@
 var date = new Date();
 var year = date.getFullYear();  
 document.getElementById("copyright_year").innerHTML = year.toString();
+</script>
+<script>
+  console.log('heyyyy')
+  $(".nav-link").each(function() {
+    console.log(($(this).attr("id"));
+    if ($(this).hasClass("active")) {
+      console.log(($(this).attr("id"))
+    }
+  });
 </script>
 {% block js %}
 {% endblock %}
