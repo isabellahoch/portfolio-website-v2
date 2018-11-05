@@ -6,6 +6,14 @@
 .form-control {
 	margin-bottom: 20px;
 }
+
+input[type="text"].form-control, textarea.form-control {
+	background-color: rgb(249,249,249)
+}
+
+input[type="text"].form-control:focus, textarea.form-control:focus {
+	background-color: #fff !important;
+}
 </style>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/inverted_nav.css') }}">
 {% endblock %}
