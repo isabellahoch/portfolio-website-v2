@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block title %}Isabella Hochschild{% endblock %}
 {% block homeisactive %}active{% endblock %}
+{% block description %}Isabella Hochschild is a student and web developer based out of San Francisco.{% endblock %}
 {% block head %}
 <meta name="google-site-verification" content="Z9riXECDVryY5ltyUVGWF3C_Zgcu8Lr7AewPqq-6Kvc" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/inverted_nav.css') }}">
 {% endblock %}
 {% block content %}
 <div class="container">
 	<div class="row">
-		<p style="font-size:13px;padding:35px; width:100%">Welcome to my website! Please check out my <a class="link" href="/portfolio">portfolio</a> and <a class="link" href="/resume">resume</a>!</p>
+		<p style="font-size:13px;padding:35px; width:100%">Welcome to my website! Please check out my <a class="link" href="/portfolio">portfolio</a> and <a class="link" href="/resume">resume</a>.</p>
 	</div>
 </div>
 {% endblock %}

@@ -7,7 +7,7 @@
     width: 250px;
 }
 
-body {
+/*body {
 	background-color: rgb(249,249,249);
 }
 
@@ -17,8 +17,9 @@ nav {
 
 .navbar.navbar-expand-md.navbar-default.navbar-light.bg-light {
 	background-color:#fff !important;
-}
+}*/
 </style>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/inverted_nav.css') }}">
 {% endblock %}
 {% block content %}
 <div class="container">
@@ -30,19 +31,19 @@ nav {
 			<img class="portfolio-img" src="{{ url_for('static', filename='img/portfolio/incub8.PNG') }}">
 			<h3><a href="http://incub8.herokuapp.com">INCUB8</a></h3>
 			<h5>SUMMER 2018 - PRESENT</h5>
-			<p>INCUB8 is a web app that allows teen start-ups to share their projects with potential investors and obtain the funding and expertise necessary to develop their ideas. Responsibilities included the majority of front-end and back-end coding. This project used Python Flask and a mongoDB database.</p>
+			<p>INCUB8 is a web app that allows teen start-ups to share their projects with potential investors and obtain the funding and expertise necessary to develop their ideas. It was initially created during the SF <a href="https://www.kodewithklossy.com/">Kode with Klossy</a> program. Responsibilities included the majority of front-end and back-end coding, using Python Flask and mongoDB. The app was recently submitted it to the <a href="http://incub8.herokuapp.com/submission">Congressional App Challenge</a>.</p>
 		</div>
 		<div class="col-sm-4 portfolio-col">
 			<img class="portfolio-img" src="{{ url_for('static', filename='img/portfolio/uhs_baking_club.PNG') }}">
 			<h3><a href="http://uhsbakingclub.herokuapp.com">UHS Baking Club</a></h3>
 			<h5>OCTOBER 2018</h5>
-			<p>Created a website to help spread information about the club and to serve as a platform to share recipes and ideas.</p>
+			<p>Developed a website to publicize the club, sign up members, and to serve as a platform to share recipes and ideas. The Baking Club at <a href="http://sfuhs.org">San Francisco University High School</a> has a primary goal of helping students to de-stress in a stressful environment by sharing recipes, watching baking TV shows, and eating some *good* baked goods.</p>
 		</div>
 		<div class="col-sm-4 portfolio-col">
 			<img class="portfolio-img" src="{{ url_for('static', filename='img/portfolio/dt_college_day.PNG') }}">
 			<h3><a href="http://diatribe.org/college">DiaTribe College Day</a></h3>
 			<h5>JULY 2018</h5>
-			<p>Created a website to advertise the college day event held by the diaTribe Foundation.</p>
+			<p>Created a website to advertise the annual college day event held by the diaTribe Foundation. Developed a sign up system for interested high school students, set up a variety of social media accounts and publicized the event. Also set up a live broadcast of the event on the diaTribe Facebook page.</p>
 		</div>
 	</div>
 	<div class="row portfolio-row justify-content-center text-center">
@@ -50,13 +51,13 @@ nav {
 			<img class="portfolio-img" src="{{ url_for('static', filename='img/portfolio/dt_mailchimp_metrics.PNG') }}">
 			<h3><span class="link">MailChimp Aggregator</span></h3>
 			<h5>AUGUST 2018</h5>
-			<p>Assisted in the creation of an aggregator that pulled data from the MailChimp API to help make newsletters sent by <a href="http://diatribe.org">diaTribe</a> more efficient.<br>**Proprietary information</p>
+			<p>Assisted in the creation of an aggregator that pulled data from the MailChimp API to summarize  click open rates.  Using data analyzed success factors in most read articles to and help make newsletters sent by <a href="http://diatribe.org">diaTribe</a> more efficient.<br>**Proprietary information</p>
 		</div>
 		<div class="col-sm-4 portfolio-col">
 			<img class="portfolio-img" src="{{ url_for('static', filename='img/portfolio/sfspca_foster.PNG') }}">
 			<h3><a href="http://bit.ly/sfspcafoster">SF SPCA Foster Website</a></h3>
 			<h5>APRIL 2016</h5>
-			<p>Created a website for foster parents at a local animal shelter, the <a href="http://sfspca.org">San Francisco SPCA</a>, to be able to share photos and information.</p>
+			<p>Created a website for foster parents at a local animal shelter, the <a href="http://sfspca.org">San Francisco SPCA</a>, to be able to share photos and information. Foster parents could send photos to an email address which would then automatically be added to the database and go out to major social media channels.</p>
 		</div>
 		<!-- <div class="col-sm-4 portfolio-col">
 			<img class="portfolio-img" src="https://via.placeholder.com/150">

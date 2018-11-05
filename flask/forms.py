@@ -6,4 +6,4 @@ class ContactForm(FlaskForm):
   email = StringField("_replyto", render_kw={'class': 'form-control'})
   subject = StringField("Subject", render_kw={'class': 'form-control'})
   message = TextAreaField("Message", render_kw={'class': 'form-control'})
-  submit = SubmitField("Send", render_kw={'class': 'btn btn-baking','style':'width:100%'})
+  submit = SubmitField("Send", render_kw={'class': 'btn btn-outline-dark','style':'width:100%; text-transform:uppercase'})
