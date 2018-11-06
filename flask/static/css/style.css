@@ -24,11 +24,13 @@ body {
 a:hover {
   color: var(--main-color) !important;
   text-decoration: underline !important;
+  cursor: pointer;
 }
 
 .link:hover {
   color: var(--main-color) !important;
   text-decoration: underline !important;
+  cursor: pointer !important;
 }
 
 .link {

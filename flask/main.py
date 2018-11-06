@@ -74,6 +74,22 @@ def contact():
     elif request.method == 'GET':
         return render_template('contact.html', form = form)
 
+
+@app.route('/incub8')
+def incub8():
+    return redirect("http://incub8.herokuapp.com")
+
+@app.route('/baking-club')
+def baking_club():
+    return redirect("http://uhsbakingclub.herokuapp.com")
+
+@app.route('/diatribe-college-day')
+def diatribe_college_day():
+    return redirect("http://diatribe.org/college")
+
+
+
+
 @app.route('/sitemap.xml', methods=['GET'])
 def sitemap():
     """Generate sitemap.xml """
