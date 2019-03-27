@@ -75,6 +75,18 @@ def contact():
         return render_template('contact.html', form = form)
 
 
+
+
+@app.route('/chem-project')
+def chem_project():
+    return render_template('chem_project.html')
+
+
+
+@app.route('/lets-get-this-bread')
+def lets_get_this_bread():
+    return redirect("http://lets-get-this-bread.herokuapp.com")
+
 @app.route('/incub8')
 def incub8():
     return redirect("http://incub8.herokuapp.com")
