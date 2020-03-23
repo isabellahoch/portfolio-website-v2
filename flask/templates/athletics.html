@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}Isabella Hochschild | Athletic Recruiting{% endblock %}
+{% block description %}Isabella Hochschild is a middle distance track runner and XC runner, as well as a black belt in tae kwon do!{% endblock %}
+{% block keywords %}recruiting,isabella hochschild recruiting,isabella hochschild track recruiting,isabella hochschild track and field recruiting,track and field,track recruiting,track and field recruiting,cross country recruiting{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/inverted_nav.css') }}">
+{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="row" style="padding:50px; padding-top:0px">
+		<h1>ATHLETICS</h1>
+	</div>
+	<div class="row">
+		<h2>LINKS</h2>
+		<ul>
+			<li><strong>NCAA Clearinghouse ID:</strong> 1905573006</li>
+			<li><a href="https://www.athletic.net/TrackAndField/Athlete.aspx?AID=12719238">athletic.net T&F</a></li>
+			<li><a href="https://www.athletic.net/CrossCountry/Athlete.aspx?AID=12719238">athletic.net XC</a></li>
+			<li><a href="https://www.xcstats.com/indiv_career_report.php?runr_id=171579">XCSTATS</a></li>
+		</ul>
+	</div>
+	<div class="row">
+		<h2>TIMES</h2>
+		<ul>
+			{% for event in events %}
+			<li id="{{ event.id }}">
+				<strong>{{ event.name }}</strong>: {{ event.time }} | {{ event.meet|safe }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<!-- <div class="row portfolio-row justify-content-center text-center">
+		<div class="col-sm-4 portfolio-col">
+			<img class="portfolio-img" src="{{ url_for('static', filename='img/portfolio/incub8.PNG') }}">
+			<h3><a href="http://incub8.herokuapp.com">1NCUB8</a></h3>
+			<h5>SUMMER 2018 - PRESENT</h5>
+			<p>1NCUB8 is a web app that allows teen start-ups to share their projects with potential investors and obtain the funding and expertise necessary to develop their ideas. It was initially created during the SF <a href="https://www.kodewithklossy.com/">Kode with Klossy</a> program. Responsibilities included the majority of front-end and back-end coding, using Python Flask and mongoDB. The app was recently submitted it to the <a href="http://incub8.herokuapp.com/submission">Congressional App Challenge</a>.</p>
+		</div>
+		<div class="col-sm-4 portfolio-col">
+			<img class="portfolio-img" src="{{ url_for('static', filename='img/portfolio/SanFrancisGO.PNG') }}">
+			<h3><a href="http://sanfrancisgo.herokuapp.com">SanFrancisGO</a></h3>
+			<h5>SUMMER 2019 - PRESENT</h5>
+			<p>SanFrancisGO is a mobile and web app initially created during the SF <a href="https://www.kodewithklossy.com/">Kode with Klossy</a> program in 2019. Responsibilities included front-end and back-end coding for the website, creating a database, and doing the majority of back-end work in Swift for the mobile app. For this project, used Swift, XCODE, CocoaPods, Python, Flask, and Firebase. The app was recently submitted it to the <a href="http://sanfrancisgo.herokuapp.com/submission">Congressional App Challenge</a>.</p>
+		</div>
+		<div class="col-sm-4 portfolio-col">
+			<img class="portfolio-img" src="{{ url_for('static', filename='img/portfolio/dt_college_day.PNG') }}">
+			<h3><a href="http://diatribe.org/college">DiaTribe College Day</a></h3>
+			<h5>JULY 2018</h5>
+			<p>Created a website to advertise the annual college day event held by the diaTribe Foundation. Developed a sign up system for interested high school students, set up a variety of social media accounts and publicized the event. Also set up a live broadcast of the event on the diaTribe Facebook page.</p>
+		</div>
+	</div>
+	<div class="row portfolio-row justify-content-center text-center">
+		<div class="col-sm-4 portfolio-col">
+			<img class="portfolio-img" src="{{ url_for('static', filename='img/portfolio/uhs_baking_club.PNG') }}">
+			<h3><a href="http://uhsbakingclub.herokuapp.com">UHS Baking Club</a></h3>
+			<h5>OCTOBER 2018</h5>
+			<p>Developed a website to publicize the club, sign up members, and to serve as a platform to share recipes and ideas. The Baking Club at <a href="http://sfuhs.org">San Francisco University High School</a> has a primary goal of helping students to de-stress in a stressful environment by sharing recipes, watching baking TV shows, and eating some *good* baked goods.</p>
+		</div>
+		<div class="col-sm-4 portfolio-col">
+			<img class="portfolio-img" src="{{ url_for('static', filename='img/portfolio/uhs_student_it_team.PNG') }}">
+			<h3><a href="http://bit.ly/uhs-student-it-team">UHS Student IT Team</a></h3>
+			<h5>SEPTEMBER 2019 - PRESENT</h5>
+			<p>Developed a website to publicize the club and organize members. (admin section is hidden for most users) I co-founded the Student IT Team at <a href="http://sfuhs.org">San Francisco University High School</a> to assist with both the faculty- and student-related problems that can be solved or made more efficient using technology.</p>
+		</div>
+		<div class="col-sm-4 portfolio-col">
+			<img class="portfolio-img" src="{{ url_for('static', filename='img/portfolio/dt_mailchimp_metrics.PNG') }}">
+			<h3><span class="link">MailChimp Aggregator</span></h3>
+			<h5>AUGUST 2018</h5>
+			<p>Assisted in the creation of an aggregator that pulled data from the MailChimp API to summarize  click open rates.  Using data analyzed success factors in most read articles to and help make newsletters sent by <a href="http://diatribe.org">diaTribe</a> more efficient.<br>**Proprietary information</p>
+		</div>
+		<div class="col-sm-4 portfolio-col">
+			<img class="portfolio-img" src="{{ url_for('static', filename='img/portfolio/sfspca_foster.PNG') }}">
+			<h3><a href="http://bit.ly/sfspcafoster">SF SPCA Foster Website</a></h3>
+			<h5>APRIL 2016</h5>
+			<p>Created a website for foster parents at a local animal shelter, the <a href="http://sfspca.org">San Francisco SPCA</a>, to be able to share photos and information. Foster parents could send photos to an email address which would then automatically be added to the database and go out to major social media channels.</p>
+		</div> -->
+		<!-- <div class="col-sm-4 portfolio-col">
+			<img class="portfolio-img" src="https://via.placeholder.com/150">
+			<h3><a href="http://diatribe.org/college">DiaTribe College Day</a></h3>
+			<p>Created a website to advertise the college day event held by the diaTribe Foundation.</p>
+		</div> -->
+	<!-- </div> -->
+</div>
+{% endblock %}
