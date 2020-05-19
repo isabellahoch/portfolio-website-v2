@@ -194,7 +194,9 @@ def athletics():
 def chem_project():
     return render_template('chem_project.html')
 
-
+@app.route('/spring-2020-independent-study')
+def independent_study_spring_2020():
+    return render_template('etude_independante_2020.html')
 
 @app.route('/lets-get-this-bread')
 def lets_get_this_bread():
