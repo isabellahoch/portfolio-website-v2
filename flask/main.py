@@ -172,6 +172,7 @@ def athletics():
 	# cross country
 	# events.append({"id":"800","name":"800","time":"2:20.36","date":"05/18/2019","meet":"NCS Meet Of Champions"})
 	print(events)
+	events.append({'name': u'Shot Put - 4kg', 'id': u'Shot Put - 4kg'})
 	if events.index({'name': u'Shot Put - 4kg', 'id': u'Shot Put - 4kg'}):
 		events[events.index({'name': u'Shot Put - 4kg', 'id': u'Shot Put - 4kg'})] = {'name': u'Shot Put - 4kg', 'id': u'Shot Put - 4kg','time':"26' 1"}
 	if events[0]["name"] == "100 Meters":
