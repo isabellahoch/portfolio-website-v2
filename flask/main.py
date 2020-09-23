@@ -65,18 +65,19 @@ def sofia():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return redirect('/#about')
 
 @app.route('/resume')
 def resume():
-    return render_template('resume.html')
+    return redirect('/#resume')
 
 @app.route('/portfolio')
 def portfolio():
-    return render_template('portfolio.html')
+    return redirect('/#portfolio')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
+	return redirect("/#contact")
     form = ContactForm()
     if request.method == 'POST':
         if form.validate():
