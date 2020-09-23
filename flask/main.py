@@ -48,9 +48,20 @@ def internal_server_error(e):
     message = "The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application."
     return render_template('error.html', code = code, message = message, title = title), 500
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('about.html')
+	info = {}
+	info["sections"] = [{"title":"Resume","id":"resume"},{"title":"About","id":"about"}]
+	form = ContactForm()
+	if request.method == 'POST':
+		if form.validate():
+			return render_template('index.html', info = info, post = 'yup', form = form)
+	elif request.method == 'GET':
+		return render_template('index.html', info = info, form = form)
+
+@app.route('/sofia')
+def sofia():
+    return render_template('sofia.html')
 
 @app.route('/about')
 def about():

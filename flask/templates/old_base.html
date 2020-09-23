@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="keywords" content="isabella hochschild,isabella,hochschild,{% block keywords %}{% endblock %}">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Comfortaa|Lobster+Two|Luckiest+Guy|Poiret+One|Sigmar+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <style>
+    .link {
+    	color: #7D9EC0 !important;
+    }
+
+    .nav-link.active {
+    	color: #7D9EC0 !important;
+    }
+
+    a.nav-link.active {
+    color: #7D9EC0 !important;
+	}
+    </style>
+    <style>
+    .navbar {
+      font-family: 'Montserrat', sans-serif;
+      /*margin-top: 3em;*/
+      margin-bottom:5%;
+      border: none;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        /*background-color: white;*/
+        color: black;
+    }
+
+    .navbar-default {
+      .navbar-brand,
+      .navbar-nav>li>a {
+        color: black;
+        
+      }
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.25em;
+        letter-spacing: 3px;
+      }
+    }
+
+    .container-fluid {
+      background-color: #fff;
+    }
+
+    .navbar-toggle {
+      border: none;
+    }
+
+    .icon-bar {
+      color: black;
+    }
+
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+        background-color: #fff;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: black;
+    }
+    </style>
+    <style>
+    #nav_list {
+      list-style:none;
+      color: #777;
+    }
+    #nav_list > li {
+      display:inline !important;
+      color: #777;
+      padding:20px;
+    }
+    #nav_list > li > a{
+      display:inherit !important;
+      color: #777;
+      background-color:inherit;
+    }
+    hr {
+      color: #656969;
+      border-width: 2px;
+      border: 1;
+      clear: both;
+      width: 96%;
+      height: 1px;
+    }
+    </style>
+    <style>
+    /*body {
+      background-color: rgb(249,249,249);
+    }
+    .navbar.navbar-expand-md.navbar-default.navbar-light.bg-light {
+      background-color:#fff !important;
+    }*/
+    </style>
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-default navbar-light bg-light">
+  <a class="navbar-brand link" href="/" style="padding-left:20px">ISABELLA HOCHSCHILD</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav" id="nav_list">
+      <!-- <li class="nav-item">
+        <a class="nav-link {% block homeisactive %}{% endblock %}" href="/" id="home">Home <span class="sr-only">(current)</span></a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link {% block aboutisactive %}{% endblock %}" href="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% block portfolioisactive %}{% endblock %}" href="/portfolio" id="portfolio">Portfolio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% block resumeisactive %}{% endblock %}" href="/resume" id="resume">Resume</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% block contactisactive %}{% endblock %}" href="/contact" id="contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+{% block content %}
+{% endblock %}
+
+<footer class="page-footer deep-purple center-on-small-only pt-0">
+  <div class="container">
+    <div class="row pt-5 mb-3 text-center d-flex justify-content-center">
+      <div class="col-md-2 mb-3">
+        <h6 class="title font-bold"><a class="link" href="/about">ABOUT</a></h6>
+      </div>
+      <div class="col-md-2 mb-3">
+        <h6 class="title font-bold"><a class="link" href="/contact">CONTACT</a></h6>
+      </div>
+      <div class="col-md-2 mb-3">
+        <h6 class="title font-bold"><a class="link" href="/resume">RESUME</a></h6>
+      </div>
+    </div>
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4" style="padding-top: 25px; height: 75px;">
+      <div class="col">
+        <div class="social-footer mb-5 flex-center social-links" id="social-media-links" style="font-size:25px">
+          <!--Facebook-->
+          <!-- <a class="icons-sm fb-ic link" href="https://www.facebook.com/pages/UHS-Baking-Club/725355447810830"><i class="fab fa-facebook-f""> </i></a> -->
+          <!--Twitter-->
+          <a class="icons-sm tw-ic link" href="https://twitter.com/isabellahoch"><i class="fab fa-twitter"> </i></a>
+          <!--Google +-->
+          <!-- <a class="icons-sm gplus-ic link" href="https://plus.google.com/106958539680238184412"><i class="fab fa-google-plus"> </i></a>
+
+          <a class="icons-sm tmblr-ic link" href="https://uhsbakingclub.tumblr.com/"><i class="fab fa-tumblr"> </i></a> -->
+          <!--Linkedin-->
+          <a class="icons-sm li-ic link" href="https://www.linkedin.com/in/isabella-hochschild-969ba7127/"><i class="fab fa-linkedin-in"> </i></a>
+          <!--Instagram-->
+          <a class="icons-sm ins-ic link" href="https://www.instagram.com/isabellahochschild/"><i class="fab fa-instagram"> </i></a>
+          <!--Pinterest-->
+          <a class="icons-sm gh-ic link" href="https://www.github.com/isabellahoch/"><i class="fab fa-github"> </i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="clearfix rgba-white-light" style="margin: 10% 15% 5%; margin-bottom: 0px; margin-top:0px">
+    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+      <div class="col-md-8 col-12 mt-5">
+        <p style="line-height: 1.7rem">&copy; <span id="copyright_year">2018</span>: <a class="link" href="/"> Isabella Hochschild </a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+                    <!--/Footer-->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
+<script>
+var date = new Date();
+var year = date.getFullYear();  
+document.getElementById("copyright_year").innerHTML = year.toString();
+</script>
+<script>
+  console.log('heyyyy')
+  $(".nav-link").each(function() {
+    console.log(($(this).attr("id"));
+    if ($(this).hasClass("active")) {
+      console.log(($(this).attr("id"))
+    }
+  });
+</script>
+{% block js %}
+{% endblock %}
+</body>
+</html>
