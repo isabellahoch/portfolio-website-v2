@@ -75,6 +75,10 @@ def resume():
 def portfolio():
     return redirect('/#portfolio')
 
+@app.route('/google1ec94f20b076cf81.html')
+def google_site_verification():
+    return render_template('google_site_verification.html')
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
 	return redirect("/#contact")
