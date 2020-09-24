@@ -78,13 +78,13 @@ def portfolio():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
 	return redirect("/#contact")
-    form = ContactForm()
-    if request.method == 'POST':
-        if form.validate():
-            print('hey')
-            return render_template('contact.html', post = 'yup', form = form)
-    elif request.method == 'GET':
-        return render_template('contact.html', form = form)
+    # form = ContactForm()
+    # if request.method == 'POST':
+    #     if form.validate():
+    #         print('hey')
+    #         return render_template('contact.html', post = 'yup', form = form)
+    # elif request.method == 'GET':
+    #     return render_template('contact.html', form = form)
 
 from bs4 import BeautifulSoup
 import requests
