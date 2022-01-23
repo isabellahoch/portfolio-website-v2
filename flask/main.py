@@ -184,7 +184,7 @@ def athletics():
 			if(float(temp)<60*personal_record["min"]+personal_record["sec"]):
 				personal_record = {"min":0,"sec":float(''.join([c for c in str(item[2]) if c in '1234567890.']))}
 
-	print(data)
+	# print(data)
 	# cross country
 	# events.append({"id":"800","name":"800","time":"2:20.36","date":"05/18/2019","meet":"NCS Meet Of Champions"})
 	print(events)
