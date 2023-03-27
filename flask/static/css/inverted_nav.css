@@ -1,0 +1,19 @@
+body {
+	background-color: rgb(249,249,249);
+}
+
+.navbar.navbar-expand-md.navbar-default.navbar-light.bg-light {
+	background-color:#fff !important;
+}
+
+input[type="text"].form-control, textarea.form-control {
+	background-color: rgb(249,249,249)
+}
+
+input[type="text"].form-control:focus, textarea.form-control:focus {
+	background-color: #fff !important;
+}
+
+input#submit {
+	background-color: #fff !important;
+}

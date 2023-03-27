@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Unauthorized | Isabella Hochschild{% endblock %}
+{% block content %}
+<div class="container">
+	<section class="heading">
+        <h1 style="font-size:36px">Sorry!</h1>
+  </section>
+	<div class="row">
+		<div class="col">
+			{% if message %}
+			<h2>{{ message }}</h2>
+			{% endif %}
+			<br>
+			<p style="padding-bottom:20px">You are not allowed to access this page. Please contact an admin to be granted access.</p>
+			<p>Here are some helpful links instead.</p>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/recipes">Recipes</a></li>
+				<li><a href="/about">About</a></li>
+				<li><a href="/contact">Contact</a></li>
+				<li><a href="/dashboard">Dashboard</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block head %}
+<style>
+p {
+	width:100%;
+}
+</style>
+{% endblock %}
