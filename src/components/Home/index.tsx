@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import '../../index.css';
+import GitHubActivity from '../GitHubActivity';
 
 const Home: React.FC = () => (
   <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }} className="container">
@@ -17,7 +18,7 @@ const Home: React.FC = () => (
       !
     </p>
     <p>
-      You can view the 5-year old soon-to-be-deprecated version
+      You can view the antiquated 5-year old soon-to-be-deprecated version
       {' '}
       (maintaining backwards compatability until 2024)
       {' '}
@@ -25,6 +26,7 @@ const Home: React.FC = () => (
       .
     </p>
     <p>Updated version expected August 2023 :)</p>
+    <GitHubActivity />
   </Box>
 );
 
