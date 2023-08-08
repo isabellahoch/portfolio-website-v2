@@ -57,8 +57,11 @@ const Header: React.FC = (props: Props) => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex', height: '100px', marginBottom: '50px' }}>
-      <AppBar component="nav">
+    <Box sx={{
+      display: 'flex', height: '100px', marginBottom: '50px', bgcolor: 'palette.primary',
+    }}
+    >
+      <AppBar component="nav" sx={{ bgcolor: 'palette.primary' }}>
         <Toolbar>
           <IconButton
             color="inherit"
