@@ -10,7 +10,7 @@ const Home: React.FC = () => (
       <p>
         Welcome to my portfolio website! It is currently under construction 🚧 as I migrate my
         {' '}
-        <a href="https://github.com/isabellahoch/portfolio-website-v2">5+ year old version in Flask/Python</a>
+        <a href="https://github.com/isabellahoch/flask-portfolio">5+ year old version in Flask/Python</a>
         {' '}
         to a more standard MERN tech stack.
         {' '}
