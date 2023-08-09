@@ -5,10 +5,10 @@ import { load } from 'cheerio';
 // *it would be nice if they just had an API that did this instead!!
 
 // const GITHUB_URL = 'https://github.com/users/isabellahoch/contributions';
-const GITHUB_URL = 'https://thingproxy.freeboard.io/fetch/http://github.com/users/isabellahoch/contributions';
+// const GITHUB_URL = 'https://thingproxy.freeboard.io/fetch/http://github.com/users/isabellahoch/contributions';
 
 // DEV
-// const GITHUB_URL = 'https://this-is-just-a-cors-test.tiiny.site/';
+const GITHUB_URL = 'https://this-is-just-a-cors-test.tiiny.site/';
 
 // PROD
 // const GITHUB_URL = 'https://urlreq.appspot.com/req?method=GET&url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
