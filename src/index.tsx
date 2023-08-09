@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import './fonts.css';
 import { ThemeProvider } from '@mui/material/styles';
@@ -7,15 +7,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import App from './App';
 import THEMES from './themes';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
-);
-
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={THEMES.DARK}>
       <CssBaseline />
       <App />
     </ThemeProvider>
   </React.StrictMode>,
+  document.getElementById('root'),
 );

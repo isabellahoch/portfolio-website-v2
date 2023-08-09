@@ -1,0 +1,33 @@
+.rcw-conversation-container > .rcw-header {
+    background-color: rgb(64, 137, 206);
+}
+
+.rcw-launcher {
+    background-color: rgb(64, 137, 206);
+}
+
+.rcw-response .rcw-message-text {
+    background-color: rgb(110, 110, 110);
+}
+
+.rcw-message > .rcw-response {
+    color: white;
+}
+
+.rcw-client .rcw-message-text {
+    color: black;
+}
+
+.rcw-message-text a {
+    color: rgb(106, 183, 255);
+    font-weight: bold;
+}
+
+.rcw-input {
+    color: #000;
+    text-align: left;
+}
+
+img.rcw-picker-icon {
+    display: none;
+}

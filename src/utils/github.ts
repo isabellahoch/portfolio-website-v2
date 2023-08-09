@@ -5,10 +5,13 @@ import { load } from 'cheerio';
 // *it would be nice if they just had an API that did this instead!!
 
 // const GITHUB_URL = 'https://github.com/users/isabellahoch/contributions';
-// const GITHUB_URL = 'https://thingproxy.freeboard.io/fetch/http://github.com/users/isabellahoch/contributions';
-// const GITHUB_URL = 'https://urlreq.appspot.com/req?method=GET&url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
+const GITHUB_URL = 'https://thingproxy.freeboard.io/fetch/http://github.com/users/isabellahoch/contributions';
 
-const GITHUB_URL = 'https://this-is-just-a-cors-test.tiiny.site/';
+// DEV
+// const GITHUB_URL = 'https://this-is-just-a-cors-test.tiiny.site/';
+
+// PROD
+// const GITHUB_URL = 'https://urlreq.appspot.com/req?method=GET&url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
 
 export interface Datapoint {
   x: number
@@ -99,7 +102,11 @@ export const getActivity = async (): Promise<Datapoint[]> => {
 
     for (let i = 5; i < sortedActivities.length; i += 5) {
       const dateObject = new Date(sortedActivities[i].x);
-      sortedActivities[i].name = `${monthNames[dateObject.getMonth()]} ${dateObject.getDate()}`;
+      if (window.innerWidth < 600) {
+        sortedActivities[i].name = `${dateObject.getMonth()}/${dateObject.getDate()}`;
+      } else {
+        sortedActivities[i].name = `${monthNames[dateObject.getMonth()]} ${dateObject.getDate()}`;
+      }
     }
 
     return sortedActivities;
