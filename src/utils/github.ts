@@ -11,7 +11,8 @@ import { load } from 'cheerio';
 // const GITHUB_URL = 'https://this-is-just-a-cors-test.tiiny.site/';
 
 // PROD
-const GITHUB_URL = 'https://urlreq.appspot.com/req?method=GET&url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
+// const GITHUB_URL = 'https://urlreq.appspot.com/req?method=GET&url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
+const GITHUB_URL = 'https://cors-proxy.htmldriven.com/?url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
 
 export interface Datapoint {
   x: number
