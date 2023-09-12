@@ -1,0 +1,33 @@
+/* override masonry styling */
+div.makeStyles-masonryContainer-1 {
+    width:100vw;
+    display: flex;
+    justify-content: center;
+}
+
+div.makeStyles-masonryContainer-1 > div {
+    width:95%;
+}
+
+div.makeStyles-masonryContainer-1 > div > div > div > div {
+    align-items: center;
+}
+
+/* App.css */
+.fade-enter {
+    opacity: 0;
+}
+  
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+}

@@ -1,0 +1,21 @@
+.aboutImgParent {
+    border-style: solid;
+    border-width: 7px;
+    position: relative;
+    margin-top: 100px;
+    margin-left: 0px;
+    width: 500px;
+    height: 350px;
+    border-radius: 50% / 50%;
+    overflow: hidden;
+    transform: rotate(-25deg);
+}
+
+.aboutImg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(25deg);
+    min-width: 100%;
+    min-height: 100%;
+}

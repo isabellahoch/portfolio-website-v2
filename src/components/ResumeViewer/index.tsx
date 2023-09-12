@@ -1,22 +1,20 @@
 import React, { useEffect } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
+import { Document, Page } from 'react-pdf';
 import parseResumePath from '../../utils/parseResumePath';
-import ResumePaths from '../../types/resumeVersions';
+import { ResumePaths } from '../../types/resumeVersions';
 
 interface ResumeViewerProps {
-    fileUrl: string
+  fileUrl: string
   defaultDownloadName: string
 }
 
 const ResumeViewer: React.FC<ResumeViewerProps> = ({ fileUrl, defaultDownloadName = 'Hochschild, Isabella Resume' }) => {
   const [numberOfPages, setNumberOfPages] = React.useState(0);
   const [pageNumber, setPageNumber] = React.useState(1);
-  const [fileType, setFileType] = React.useState('');
   const [filePath, setFilePath] = React.useState('');
 
   useEffect(() => {
     const resumeType = parseResumePath(fileUrl);
-    setFileType(resumeType);
     setFilePath(ResumePaths[resumeType]);
   }, []);
 

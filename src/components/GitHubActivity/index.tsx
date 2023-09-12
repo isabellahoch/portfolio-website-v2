@@ -11,6 +11,7 @@ const GitHubActivity: React.FC = () => {
   const [activityData, setActivityData] = useState<Datapoint[]>([]);
   const [totalPeriodActivity, setTotalPeriodActivity] = useState<number>(0);
   const [dayOne, setDayOne] = useState<string>('');
+  const [animationStarted, setAnimationStarted] = useState<boolean>(false); // State for animation
 
   useEffect(() => {
     getActivity().then((data) => {
@@ -22,11 +23,16 @@ const GitHubActivity: React.FC = () => {
     });
   }, []);
 
+  useEffect(() => {
+    // Start the animation after data is loaded
+    if (activityData.length > 0 && !animationStarted) {
+      setAnimationStarted(true);
+    }
+  }, [activityData, animationStarted]);
+
   if (activityData.length === 0) {
     return (
-      <Box>
-        <p>Loading...</p>
-      </Box>
+      <Box sx={{ height: '400px' }} />
     );
   }
 
@@ -54,6 +60,7 @@ const GitHubActivity: React.FC = () => {
             stroke="#8884d8"
             fillOpacity={1}
             fill="url(#colorGradient)"
+            animationBegin={animationStarted ? 0 : undefined}
             animationDuration={5000}
           />
           <ReferenceDot

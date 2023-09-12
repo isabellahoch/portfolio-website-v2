@@ -23,6 +23,7 @@
         "react"
     ],
     "rules": {
-        "react/function-component-definition": "off"
+        "react/function-component-definition": "off",
+        "@typescript-eslint/prefer-interface": "off"
     }
 }
