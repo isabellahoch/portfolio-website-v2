@@ -9,7 +9,7 @@ const colors = {
   textSecondary: '#4773ba',
 };
 
-const blueTheme = createTheme({
+const colorfulTheme = createTheme({
   palette: {
     background: {
       default: colors.mainBackground,
@@ -28,4 +28,4 @@ const blueTheme = createTheme({
   },
 });
 
-export default blueTheme;
+export default colorfulTheme;

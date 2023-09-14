@@ -19,7 +19,7 @@ interface Props {
 }
 
 const drawerWidth = 250;
-const navItems = ['Home', 'Projects', 'About', 'Contact'];
+const navItems = ['Home', 'Portfolio', 'About', 'Contact'];
 
 const Header: React.FC = (props: Props) => {
   const { window } = props;
@@ -58,7 +58,7 @@ const Header: React.FC = (props: Props) => {
 
   return (
     <Box sx={{
-      display: 'flex', height: '100px', marginBottom: '50px', bgcolor: 'palette.primary',
+      display: 'flex', height: '100px', bgcolor: 'palette.primary',
     }}
     >
       <AppBar component="nav" sx={{ bgcolor: 'palette.primary' }}>

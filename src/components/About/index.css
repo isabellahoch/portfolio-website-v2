@@ -1,8 +1,9 @@
 .aboutImgParent {
-    border: solid 7px #6f9d76;
+    border-style: solid;
+    border-width: 7px;
     position: relative;
     margin-top: 100px;
-    margin-left: 100px;
+    margin-left: 0px;
     width: 500px;
     height: 350px;
     border-radius: 50% / 50%;
