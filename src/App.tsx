@@ -12,6 +12,7 @@ import Chatbot from './components/Chatbot';
 import ResumeViewer from './components/ResumeViewer';
 import Projects from './components/Projects';
 import About from './components/About';
+import Contact from './components/Contact';
 import { type RootState } from './reducers';
 import THEMES from './themes';
 
@@ -33,6 +34,8 @@ const App: React.FC = () => {
               element={<ResumeViewer defaultDownloadName="Hochschild, Isabella Resume.pdf" fileUrl="/assets/resumes/projects.pdf" />}
             />
             <Route path="/portfolio" Component={Projects} />
+            <Route path="/projects" Component={Projects} />
+            <Route path="/contact" Component={Contact} />
             <Route path="/about" Component={About} />
             <Route path="/" Component={Home} />
           </Routes>
