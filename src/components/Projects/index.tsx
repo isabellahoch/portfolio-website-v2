@@ -26,7 +26,7 @@ const Projects: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <h1>Projects</h1>
       <div className={classes.masonryContainer}>
         <TransitionGroup>
