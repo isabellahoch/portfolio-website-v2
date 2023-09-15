@@ -6,7 +6,7 @@ import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import ThemeToggle from '../ThemeToggle';
-import SocialMediaIcons from '../SocialMediaIcons';
+// import SocialMediaIcons from '../SocialMediaIcons';
 
 const githubRepoLink = 'https://github.com/isabellahoch/portfolio-website-v2';
 
@@ -35,15 +35,18 @@ const Footer: React.FC = () => {
         textAlign: 'center', // center text
       }}
       >
-        <Typography variant="body1" color="inherit">
-          Designed & coded with
-          {' '}
-          <span style={{ color: 'red' }}>&#10084;</span>
-          {' '}
-          by Isabella Hochschild
-        </Typography>
         <ThemeToggle />
-        <SocialMediaIcons />
+        <Box sx={{ marginTop: '2rem', display: 'flex', flexDirection: 'row' }}>
+          <Typography variant="body1" color="inherit">
+            Designed & coded with
+            {' '}
+            <span style={{ color: 'red' }}>&#10084;</span>
+            {' '}
+            by Isabella Hochschild
+          </Typography>
+          {/* <SocialMediaIcons /> */}
+        </Box>
+        {/* <Box sx={{ marginTop: '1rem' }} /> */}
         <Box
           sx={{
             display: 'flex',
