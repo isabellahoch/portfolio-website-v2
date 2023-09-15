@@ -6,6 +6,7 @@ import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import ThemeToggle from '../ThemeToggle';
+import SocialMediaIcons from '../SocialMediaIcons';
 
 const githubRepoLink = 'https://github.com/isabellahoch/portfolio-website-v2';
 
@@ -42,6 +43,7 @@ const Footer: React.FC = () => {
           by Isabella Hochschild
         </Typography>
         <ThemeToggle />
+        <SocialMediaIcons />
         <Box
           sx={{
             display: 'flex',

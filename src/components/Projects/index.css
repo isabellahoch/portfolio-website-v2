@@ -31,3 +31,8 @@ div.makeStyles-masonryContainer-1 > div > div > div > div {
     opacity: 0;
     transition: opacity 500ms ease-in-out;
 }
+
+/* fix bizarre masonry bug only on prod version */
+.jss1 > div {
+    width: 100% !important;
+}
