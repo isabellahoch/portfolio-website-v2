@@ -19,7 +19,7 @@ interface Props {
 }
 
 const drawerWidth = 250;
-const navItems = ['Home', 'Portfolio', 'About', 'Contact'];
+const navItems = ['Home', 'Portfolio', 'About'];
 
 const Header: React.FC = (props: Props) => {
   const { window } = props;
