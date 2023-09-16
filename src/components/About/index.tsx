@@ -15,7 +15,7 @@ const About: React.FC = () => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
-  // const aboutInfo = useSelector((state: RootState) => state.info.about);
+  const aboutInfo = useSelector((state: RootState) => state.info.about);
   const aboutInfo = "Here's a bit about me!";
   const badges = useSelector((state: RootState) => state.info.badges);
   const aboutImg = 'https://media.licdn.com/dms/image/D4E03AQEQzUh76ZsCNQ/profile-displayphoto-shrink_800_800/0/1688611928043?e=2147483647&v=beta&t=r0-Ry1QlNRzl1uaxxe6bKVc4w7lFydCzPeZAC3QUrF4';
