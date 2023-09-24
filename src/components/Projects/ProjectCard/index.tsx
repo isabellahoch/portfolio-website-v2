@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@mui/styles';
 import Card from '@mui/material/Card';
 import { Box } from '@mui/material';
@@ -25,7 +25,11 @@ const useStyles = makeStyles({
     },
   },
   media: {
-    height: 140,
+    paddingTop: '5%',
+  },
+  mediaWithImg: {
+    // paddingTop: '56.25%', // 16:9 aspect ratio (9 / 16 * 100%)
+    objectFit: 'contain',
   },
   badges: {
     display: 'flex',
@@ -42,13 +46,39 @@ interface ProjectProps {
 const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
   const classes = useStyles();
 
+  const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    if (project.imageUrl !== '') {
+      const img = new Image();
+      img.src = project.imageUrl;
+      img.onload = () => {
+        setImageDimensions({ width: img.width, height: img.height });
+      };
+    }
+  }, [project.imageUrl]);
+
+  // calculate aspect ratio based on preloaded image dimensions
+  const aspectRatio = imageDimensions.width / imageDimensions.height;
+
+  // calculate paddingTop value to establish dynamic height based on aspect ratio
+  const paddingTopValue = `${(1 / aspectRatio) * 100}%`;
+
   return (
     <Card className={classes.root}>
-      <CardMedia
-        className={classes.media}
-        image={project.imageUrl}
-        title={project.title}
-      />
+      {(project.imageUrl !== '') ? (
+        <CardMedia
+          className={classes.mediaWithImg}
+          style={{ paddingTop: paddingTopValue }}
+          image={project.imageUrl}
+          title={project.title}
+        />
+      ) : (
+        <CardMedia
+          className={classes.media}
+          title={project.title}
+        />
+      )}
       <CardContent>
         {/* <Typography gutterBottom variant="h5" component="div"> */}
         <Markdown>{project.title}</Markdown>
