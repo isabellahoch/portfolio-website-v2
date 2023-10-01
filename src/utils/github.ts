@@ -9,6 +9,7 @@ import { load } from 'cheerio';
 
 // DEV
 const GITHUB_URL = 'https://this-is-just-a-cors-test.tiiny.site/';
+// const GITHUB_URL = 'https://purple-crow.static.domains/githubcom-isabellahoch-contri';
 
 // PROD
 // const GITHUB_URL = 'https://urlreq.appspot.com/req?method=GET&url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
@@ -83,7 +84,7 @@ export const getActivity = async (): Promise<ActivityResult> => {
   try {
     // get reference date 1 month ago in UTC
     const ref = new Date();
-    ref.setDate(ref.getDate() - 30);
+    ref.setDate(ref.getDate() - 31);
 
     // Request GitHub contribution data
     axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
@@ -93,13 +94,14 @@ export const getActivity = async (): Promise<ActivityResult> => {
 
     // Parse HTML
     const html = load(data);
+    console.log(html);
+    console.log(data);
     const activityData: Datapoint[] = [];
 
-    let numberOfContributions = -1;
+    let numberOfContributions = 0;
 
     const contributionsElement = html('h2.mb-2');
 
-    // Check if such an element was found
     if (contributionsElement.length > 0) {
       const text = contributionsElement.text();
 
@@ -119,16 +121,29 @@ export const getActivity = async (): Promise<ActivityResult> => {
       console.log('Element with contributions count not found.');
     }
 
+    console.log('reftime', ref.getTime());
+    console.log('refdate', ref.getTime());
+
     // Loop through HTML elements and generate activity data
     html('.ContributionCalendar-day .sr-only').each((_i, el) => {
       const parsedDataPoint = parseContributions(html(el).text());
       // eslint-disable-next-line max-len
-      if (!Number.isNaN(parsedDataPoint.x) && !Number.isNaN(parsedDataPoint.y) && parsedDataPoint.x !== 0 && parsedDataPoint.x >= ref.getTime()) {
+      // if (!Number.isNaN(parsedDataPoint.x) && !Number.isNaN(parsedDataPoint.y) && parsedDataPoint.x !== 0 && parsedDataPoint.x >= ref.getTime()) {
+      //   activityData.push(parsedDataPoint);
+      // }
+      // eslint-disable-next-line max-len
+      if (!Number.isNaN(parsedDataPoint.x) && !Number.isNaN(parsedDataPoint.y) && parsedDataPoint.x !== 0) {
         activityData.push(parsedDataPoint);
       }
     });
 
-    const sortedActivities = activityData.sort((a, b) => a.x - b.x);
+    const sortedActivities = activityData
+      .sort((a, b) => a.x - b.x)
+      .filter((datapoint) => datapoint.x >= ref.getTime());
+
+    console.log(sortedActivities[sortedActivities.length - 1]);
+    console.log(sortedActivities);
+    console.log(sortedActivities.length);
 
     for (let i = 5; i < sortedActivities.length; i += 5) {
       const dateObject = new Date(sortedActivities[i].x);
