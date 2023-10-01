@@ -1,22 +1,27 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 import React, { useState, useEffect } from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import {
   ResponsiveContainer, AreaChart, Area, ReferenceDot, XAxis, Label,
 } from 'recharts';
-import { type Datapoint, getActivity, monthNames } from '../../utils/github';
+import {
+  type ActivityResult, getActivity, monthNames,
+} from '../../utils/github';
 
 const GitHubActivity: React.FC = () => {
-  const [activityData, setActivityData] = useState<Datapoint[]>([]);
+  const [activityData, setActivityData] = useState<ActivityResult>(
+    { history: [], contributions: 0 },
+  );
   const [totalPeriodActivity, setTotalPeriodActivity] = useState<number>(0);
   const [dayOne, setDayOne] = useState<string>('');
   const [animationStarted, setAnimationStarted] = useState<boolean>(false); // State for animation
 
   useEffect(() => {
-    getActivity().then((data) => {
-      setActivityData(data);
-      setDayOne(`${monthNames[(new Date(data[0].x)).getMonth()]} ${(new Date(data[0].x)).getDate()}`);
-      setTotalPeriodActivity(data.reduce((sum, val) => sum + val.y, 0));
+    getActivity().then((result) => {
+      setActivityData(result);
+      console.log(result.history);
+      setDayOne(`${monthNames[(new Date(result.history[0].x)).getMonth()]} ${(new Date(result.history[0].x)).getDate()}`);
+      setTotalPeriodActivity(result.history.reduce((sum, val) => sum + val.y, 0));
     }).catch((error) => {
       console.error(error);
     });
@@ -24,12 +29,12 @@ const GitHubActivity: React.FC = () => {
 
   useEffect(() => {
     // Start the animation after data is loaded
-    if (activityData.length > 0 && !animationStarted) {
+    if (activityData.history.length > 0 && !animationStarted) {
       setAnimationStarted(true);
     }
-  }, [activityData, animationStarted]);
+  }, [activityData.history, animationStarted]);
 
-  if (activityData.length === 0) {
+  if (activityData.history.length === 0) {
     return (
       <Box sx={{ height: '400px' }} />
     );
@@ -42,7 +47,7 @@ const GitHubActivity: React.FC = () => {
     >
       <ResponsiveContainer width="80%" height={400}>
         <AreaChart
-          data={activityData}
+          data={activityData.history}
           margin={{
             top: 10, right: 30, left: 0, bottom: 0,
           }}
@@ -63,8 +68,8 @@ const GitHubActivity: React.FC = () => {
             animationDuration={5000}
           />
           <ReferenceDot
-            x={activityData[activityData.length - 1].x}
-            y={activityData[activityData.length - 1].y}
+            x={activityData.history[activityData.history.length - 1].x}
+            y={activityData.history[activityData.history.length - 1].y}
             r={10}
             fillOpacity={1}
             fill="#8884d8"
@@ -75,7 +80,7 @@ const GitHubActivity: React.FC = () => {
               content={(
                 <span>
                   {totalPeriodActivity !== 0
-                    ? [
+                    ? [`${activityData.contributions} total contributions ·`,
                       `${totalPeriodActivity} contributions`,
                       `since ${dayOne}`,
                     ]
@@ -98,7 +103,18 @@ const GitHubActivity: React.FC = () => {
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png" height="50" width="50" alt="github logo" />
           <a href="https://github.com/isabellahoch"><h4>@isabellahoch</h4></a>
         </Box>
-        <span>{`${totalPeriodActivity} contributions since ${dayOne}`}</span>
+        <span>
+          <Typography variant="body1" component="span" style={{ fontWeight: 'bold' }}>
+            {activityData.contributions}
+          </Typography>
+          {' contributions this year'}
+        </span>
+        <span>
+          <Typography variant="body1" component="span" style={{ fontWeight: 'bold' }}>
+            {totalPeriodActivity}
+          </Typography>
+          {` contributions since ${dayOne}`}
+        </span>
       </Box>
 
     </Box>

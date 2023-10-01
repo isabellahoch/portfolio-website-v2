@@ -2,7 +2,7 @@ import axios from 'axios';
 import { load } from 'cheerio';
 
 // different proxy options to bypass GitHub CORS errors
-// *it would be nice if they just had an API that did this instead!!
+// *it would be nice if they just had an API that did this instead!!*
 
 // const GITHUB_URL = 'https://github.com/users/isabellahoch/contributions';
 // const GITHUB_URL = 'https://thingproxy.freeboard.io/fetch/http://github.com/users/isabellahoch/contributions';
@@ -18,6 +18,11 @@ export interface Datapoint {
   x: number
   y: number
   name?: string
+}
+
+export interface ActivityResult {
+  contributions: number
+  history: Datapoint[]
 }
 
 export const monthNames = [
@@ -74,7 +79,7 @@ function parseContributions(input: string): Datapoint {
   }
 }
 
-export const getActivity = async (): Promise<Datapoint[]> => {
+export const getActivity = async (): Promise<ActivityResult> => {
   try {
     // get reference date 1 month ago in UTC
     const ref = new Date();
@@ -89,6 +94,30 @@ export const getActivity = async (): Promise<Datapoint[]> => {
     // Parse HTML
     const html = load(data);
     const activityData: Datapoint[] = [];
+
+    let numberOfContributions = -1;
+
+    const contributionsElement = html('h2.mb-2');
+
+    // Check if such an element was found
+    if (contributionsElement.length > 0) {
+      const text = contributionsElement.text();
+
+      console.log('text', text);
+
+      // Use regular expressions to extract the number
+      const match = text.match(/(\d+)\s*contributions\s*in\s*the\s*last\s*year/);
+
+      if (match != null) {
+        numberOfContributions = parseInt(match[1], 10);
+        console.log(`Number of contributions: ${numberOfContributions}`);
+        // You can store the number or use it as needed
+      } else {
+        console.log('No match found for contributions count.');
+      }
+    } else {
+      console.log('Element with contributions count not found.');
+    }
 
     // Loop through HTML elements and generate activity data
     html('.ContributionCalendar-day .sr-only').each((_i, el) => {
@@ -110,7 +139,12 @@ export const getActivity = async (): Promise<Datapoint[]> => {
       }
     }
 
-    return sortedActivities;
+    const result = {
+      contributions: numberOfContributions,
+      history: sortedActivities,
+    };
+
+    return result;
   } catch (error) {
     throw new Error('Error fetching GitHub contributions, see server logs.');
   }
