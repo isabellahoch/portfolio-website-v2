@@ -21,18 +21,18 @@ export interface Datapoint {
 }
 
 export const monthNames = [
-  'January',
-  'February',
+  'Jan',
+  'Feb',
   'March',
   'April',
   'May',
   'June',
   'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
+  'Aug',
+  'Sept',
+  'Oct',
+  'Nov',
+  'Dec',
 ];
 
 const UPWARD_CONSTANT = 5;

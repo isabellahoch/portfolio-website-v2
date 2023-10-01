@@ -4,7 +4,6 @@ import { Box } from '@mui/material';
 import {
   ResponsiveContainer, AreaChart, Area, ReferenceDot, XAxis, Label,
 } from 'recharts';
-// import { isMobile } from 'react-device-detect';
 import { type Datapoint, getActivity, monthNames } from '../../utils/github';
 
 const GitHubActivity: React.FC = () => {
@@ -38,7 +37,7 @@ const GitHubActivity: React.FC = () => {
 
   return (
     <Box sx={{
-      display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center',
+      display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', margin: '2vw',
     }}
     >
       <ResponsiveContainer width="80%" height={400}>
