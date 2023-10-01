@@ -28,7 +28,7 @@ const Projects: React.FC = () => {
   return (
     <div style={{ width: '100%' }}>
       <h1>Projects</h1>
-      <div className={classes.masonryContainer}>
+      <div className={`${classes.masonryContainer} masonryParent`}>
         <TransitionGroup>
           <ResponsiveMasonry columnsCountBreakPoints={{
             350: 1, 750: 2, 900: 3, 1200: 4,

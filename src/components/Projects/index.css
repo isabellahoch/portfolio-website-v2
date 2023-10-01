@@ -32,6 +32,7 @@ div.makeStyles-masonryContainer-1 > div > div > div > div, div[class^='makeStyle
 }
 
 /* fix bizarre masonry bug only on prod version */
-.jss1 > div {
+.jss1 > div, .masonryParent > div {
     width: 100% !important;
 }
+
