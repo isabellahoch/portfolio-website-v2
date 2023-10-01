@@ -11,6 +11,7 @@ const colors = {
 
 const colorfulTheme = createTheme({
   palette: {
+    mode: 'light',
     background: {
       default: colors.mainBackground,
       paper: colors.paperBackground,

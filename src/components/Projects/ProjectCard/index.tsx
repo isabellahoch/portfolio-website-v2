@@ -4,13 +4,13 @@ import Card from '@mui/material/Card';
 import { Box } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-// import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Markdown from 'react-markdown';
 import Divider from '@mui/material/Divider';
 import { type Project } from '../../../types';
 import Badge from '../../Badges/Badge';
+import './index.css';
 
 const useStyles = makeStyles({
   root: {
@@ -66,19 +66,12 @@ const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
 
   return (
     <Card className={classes.root}>
-      {(project.imageUrl !== '') ? (
-        <CardMedia
-          className={classes.mediaWithImg}
-          style={{ paddingTop: paddingTopValue }}
-          image={project.imageUrl}
-          title={project.title}
-        />
-      ) : (
-        <CardMedia
-          className={classes.media}
-          title={project.title}
-        />
-      )}
+      <CardMedia
+        className={project.imageUrl !== '' ? classes.mediaWithImg : classes.media}
+        style={{ paddingTop: paddingTopValue }}
+        image={(project.imageUrl !== '') ? project.imageUrl : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII='}
+        title={project.title}
+      />
       <CardContent>
         {/* <Typography gutterBottom variant="h5" component="div"> */}
         <Markdown>{project.title}</Markdown>

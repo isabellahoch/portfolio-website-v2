@@ -5,7 +5,6 @@ import { type RootState } from '../reducers';
 import { type Project } from '../types';
 import { FETCH_PROJECTS_REQUEST, FETCH_PROJECTS_SUCCESS, FETCH_PROJECTS_FAILURE } from '../types/portfolioActions';
 
-// Define action interfaces
 interface FetchProjectsRequestAction extends Action<typeof FETCH_PROJECTS_REQUEST> {}
 interface FetchProjectsSuccessAction extends Action<typeof FETCH_PROJECTS_SUCCESS> {
   payload: Project[]
@@ -16,7 +15,6 @@ interface FetchProjectsFailureAction extends Action<typeof FETCH_PROJECTS_FAILUR
 
 export type PortfolioAction = FetchProjectsRequestAction | FetchProjectsSuccessAction | FetchProjectsFailureAction;
 
-// Action creators
 export const fetchProjectsRequest = (): FetchProjectsRequestAction => ({
   type: FETCH_PROJECTS_REQUEST,
 });
@@ -34,7 +32,6 @@ export const fetchProjectsFailure = (error: string): FetchProjectsFailureAction 
 const API_KEY = process.env.REACT_APP_API_KEY != null ? process.env.REACT_APP_API_KEY : '';
 const API_URL = process.env.REACT_APP_API_URL != null ? process.env.REACT_APP_API_URL : '';
 
-// Async action creator (Thunk)
 export const fetchProjects = (): ThunkAction<void, RootState, unknown, PortfolioAction> => async (dispatch) => {
   console.log('here here here');
   dispatch(fetchProjectsRequest());

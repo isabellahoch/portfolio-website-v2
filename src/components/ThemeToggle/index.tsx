@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Button } from '@mui/material';
 import { type RootState } from '../../reducers';
@@ -8,8 +8,16 @@ const ThemeToggle: React.FC = () => {
   const dispatch = useDispatch();
   const currentTheme = useSelector((state: RootState) => state.theme.currentTheme);
 
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('selectedTheme');
+    if (savedTheme != null) {
+      dispatch(setTheme(savedTheme));
+    }
+  }, [dispatch]);
+
   const handleThemeChange = (theme: string): void => {
     dispatch<any>(setTheme(theme));
+    localStorage.setItem('selectedTheme', theme);
   };
 
   return (

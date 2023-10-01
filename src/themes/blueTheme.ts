@@ -11,6 +11,7 @@ const colors = {
 
 const blueTheme = createTheme({
   palette: {
+    mode: 'dark',
     background: {
       default: colors.mainBackground,
       paper: colors.paperBackground,

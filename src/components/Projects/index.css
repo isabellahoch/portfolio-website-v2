@@ -1,19 +1,18 @@
 /* override masonry styling */
-div.makeStyles-masonryContainer-1 {
+div.makeStyles-masonryContainer-1, div[class^='makeStyles-masonryContainer-'], div[class*=' makeStyles-masonryContainer-'] {
     width:100vw;
     display: flex;
     justify-content: center;
 }
 
-div.makeStyles-masonryContainer-1 > div {
+div.makeStyles-masonryContainer-1 > div, div[class^='makeStyles-masonryContainer-'] > div, div[class*=' makeStyles-masonryContainer-'] > div  {
     width:95%;
 }
 
-div.makeStyles-masonryContainer-1 > div > div > div > div {
+div.makeStyles-masonryContainer-1 > div > div > div > div, div[class^='makeStyles-masonryContainer-'] > div > div > div > div, div[class*=' makeStyles-masonryContainer-'] > div > div > div > div {
     align-items: center;
 }
 
-/* App.css */
 .fade-enter {
     opacity: 0;
 }

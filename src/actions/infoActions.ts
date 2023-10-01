@@ -63,7 +63,6 @@ export const fetchBadgesFailure = (error: string): FetchBadgesFailureAction => (
 const API_KEY = process.env.REACT_APP_API_KEY != null ? process.env.REACT_APP_API_KEY : '';
 const API_URL = process.env.REACT_APP_API_URL != null ? process.env.REACT_APP_API_URL : '';
 
-// Async action creator (Thunk)
 export const fetchAbout = (): ThunkAction<void, RootState, unknown, InfoAction> => async (dispatch) => {
   dispatch(fetchAboutRequest());
 
