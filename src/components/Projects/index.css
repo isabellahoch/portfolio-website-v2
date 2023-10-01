@@ -1,15 +1,15 @@
 /* override masonry styling */
-div.makeStyles-masonryContainer-1, div[class^='makeStyles-masonryContainer-'], div[class*=' makeStyles-masonryContainer-'] {
+div.makeStyles-masonryContainer-1, div[class^='makeStyles-masonryContainer-'], div[class*=' makeStyles-masonryContainer-'], div[class^='jss'], div[class*=' jss'] {
     width:100vw;
     display: flex;
     justify-content: center;
 }
 
-div.makeStyles-masonryContainer-1 > div, div[class^='makeStyles-masonryContainer-'] > div, div[class*=' makeStyles-masonryContainer-'] > div  {
+div.makeStyles-masonryContainer-1 > div, div[class^='makeStyles-masonryContainer-'] > div, div[class*=' makeStyles-masonryContainer-'] > div, div[class^='jss'] > div, div[class*=' jss'] > div  {
     width:95%;
 }
 
-div.makeStyles-masonryContainer-1 > div > div > div > div, div[class^='makeStyles-masonryContainer-'] > div > div > div > div, div[class*=' makeStyles-masonryContainer-'] > div > div > div > div {
+div.makeStyles-masonryContainer-1 > div > div > div > div, div[class^='makeStyles-masonryContainer-'] > div > div > div > div, div[class*=' makeStyles-masonryContainer-'] > div > div > div > div, div[class^='jss'] > div > div > div > div, div[class*=' jss'] > div > div > div > div {
     align-items: center;
 }
 
@@ -34,4 +34,10 @@ div.makeStyles-masonryContainer-1 > div > div > div > div, div[class^='makeStyle
 /* fix bizarre masonry bug only on prod version */
 .jss1 > div {
     width: 100% !important;
+}
+
+div[class^='jss'] > div, div[class*=' jss'] > div {
+    width: 100vw !important;
+    display: flex;
+    justify-content: center;
 }
