@@ -18,6 +18,7 @@ const Chatbot: React.FC = () => {
 
   const handleNewUserMessage = async (newMessage: string): Promise<void> => {
     console.log('user typed message: ', typedMessage);
+
     setConversation([...conversation, `You: ${newMessage}`]);
 
     try {

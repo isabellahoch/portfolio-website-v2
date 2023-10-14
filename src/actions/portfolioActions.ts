@@ -33,10 +33,7 @@ const API_KEY = process.env.REACT_APP_API_KEY != null ? process.env.REACT_APP_AP
 const API_URL = process.env.REACT_APP_API_URL != null ? process.env.REACT_APP_API_URL : '';
 
 export const fetchProjects = (): ThunkAction<void, RootState, unknown, PortfolioAction> => async (dispatch) => {
-  console.log('here here here');
   dispatch(fetchProjectsRequest());
-
-  console.log(`${API_URL}/projects`);
 
   try {
     const response = await fetch(`${API_URL}/projects`, {
@@ -45,7 +42,6 @@ export const fetchProjects = (): ThunkAction<void, RootState, unknown, Portfolio
       },
     });
     const data = await response.json();
-    console.log(data);
 
     dispatch(fetchProjectsSuccess(data));
   } catch (error) {

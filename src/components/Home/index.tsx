@@ -18,7 +18,7 @@ const Home: React.FC = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }} className="container">
       <h1>Hi, I&#39;m Isabella Hochschild 👋</h1>
-      <Box sx={{ padding: '0px 10vw' }}>
+      <Box sx={{ padding: '0px 10vw', marginBottom: '-50px' }}>
         <p>
           Welcome to my portfolio website! It is currently under construction 🚧 as I migrate my
           {' '}

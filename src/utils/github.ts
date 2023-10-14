@@ -8,12 +8,14 @@ import { load } from 'cheerio';
 // const GITHUB_URL = 'https://thingproxy.freeboard.io/fetch/http://github.com/users/isabellahoch/contributions';
 
 // DEV
-const GITHUB_URL = 'https://this-is-just-a-cors-test.tiiny.site/';
+// const GITHUB_URL = 'https://this-is-just-a-cors-test.tiiny.site/';
 // const GITHUB_URL = 'https://purple-crow.static.domains/githubcom-isabellahoch-contri';
 
 // PROD
 // const GITHUB_URL = 'https://urlreq.appspot.com/req?method=GET&url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
 // const GITHUB_URL = 'https://cors-proxy.htmldriven.com/?url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
+
+const GITHUB_URL = '/github_contributions.html';
 
 export interface Datapoint {
   x: number
@@ -94,8 +96,7 @@ export const getActivity = async (): Promise<ActivityResult> => {
 
     // Parse HTML
     const html = load(data);
-    console.log(html);
-    console.log(data);
+
     const activityData: Datapoint[] = [];
 
     let numberOfContributions = 0;
@@ -105,14 +106,11 @@ export const getActivity = async (): Promise<ActivityResult> => {
     if (contributionsElement.length > 0) {
       const text = contributionsElement.text();
 
-      console.log('text', text);
-
       // Use regular expressions to extract the number
       const match = text.match(/(\d+)\s*contributions\s*in\s*the\s*last\s*year/);
 
       if (match != null) {
         numberOfContributions = parseInt(match[1], 10);
-        console.log(`Number of contributions: ${numberOfContributions}`);
         // You can store the number or use it as needed
       } else {
         console.log('No match found for contributions count.');
@@ -120,9 +118,6 @@ export const getActivity = async (): Promise<ActivityResult> => {
     } else {
       console.log('Element with contributions count not found.');
     }
-
-    console.log('reftime', ref.getTime());
-    console.log('refdate', ref.getTime());
 
     // Loop through HTML elements and generate activity data
     html('.ContributionCalendar-day .sr-only').each((_i, el) => {
@@ -140,10 +135,6 @@ export const getActivity = async (): Promise<ActivityResult> => {
     const sortedActivities = activityData
       .sort((a, b) => a.x - b.x)
       .filter((datapoint) => datapoint.x >= ref.getTime());
-
-    console.log(sortedActivities[sortedActivities.length - 1]);
-    console.log(sortedActivities);
-    console.log(sortedActivities.length);
 
     for (let i = 5; i < sortedActivities.length; i += 5) {
       const dateObject = new Date(sortedActivities[i].x);

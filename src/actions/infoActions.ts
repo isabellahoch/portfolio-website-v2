@@ -46,14 +46,10 @@ export const fetchBadgesRequest = (): FetchBadgesRequestAction => ({
   type: FETCH_BADGES_REQUEST,
 });
 
-export const fetchBadgesSuccess = (badges: Record<string, BadgeEntry> | object): FetchBadgesSuccessAction => {
-  console.log('payload');
-  console.log(typeof badges);
-  return ({
-    type: FETCH_BADGES_SUCCESS,
-    payload: badges,
-  });
-};
+export const fetchBadgesSuccess = (badges: Record<string, BadgeEntry> | object): FetchBadgesSuccessAction => ({
+  type: FETCH_BADGES_SUCCESS,
+  payload: badges,
+});
 
 export const fetchBadgesFailure = (error: string): FetchBadgesFailureAction => ({
   type: FETCH_BADGES_FAILURE,
@@ -90,7 +86,6 @@ export const fetchBadges = (query: string): ThunkAction<void, RootState, unknown
       },
     });
     const data = await response.json();
-    console.log(data);
 
     dispatch(fetchBadgesSuccess(data));
   } catch (error) {
