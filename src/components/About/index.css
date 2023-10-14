@@ -11,6 +11,13 @@
     transform: rotate(-25deg);
 }
 
+@media screen and (max-width: 480px) {
+    .aboutImgParent {
+        width: 350px;
+        height: 250px;
+    }
+}
+
 .aboutImg {
     position: absolute;
     left: 50%;

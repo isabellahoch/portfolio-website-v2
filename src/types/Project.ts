@@ -1,3 +1,5 @@
+import { type Badge } from './Badge';
+
 export interface Project {
   id: number
   title: string
@@ -5,5 +7,5 @@ export interface Project {
   imageUrl: string
   githubUrl: string
   liveUrl?: string
-  badges?: [string]
+  badges?: [Badge]
 }

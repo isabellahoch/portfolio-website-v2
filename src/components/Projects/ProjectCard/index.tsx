@@ -79,21 +79,25 @@ const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
         {/* <Typography variant="body2" color="text.secondary"> */}
         <Markdown>{project.description}</Markdown>
         { (project.badges != null) && (
-          <Box>
+        <>
+          <Divider />
+          <Box sx={{ margin: '0.5em' }} />
+          <Box sx={{ padding: '5px' }}>
             {
           Object.entries(project.badges).map(
-            ([badgeKey, badgeValue]) => (
+            ([i, b]) => (
               <Badge
-                key={badgeKey}
-                badgeName={badgeKey}
-                badgeUrl={badgeValue}
+                key={i}
+                badgeName={b.title}
+                badgeUrl={b.url}
               />
             ),
           )
-}
+          }
           </Box>
+        </>
         )}
-        <Divider />
+        {(project.badges != null && project.badges?.length > 0) && <Divider />}
         <Box sx={{ margin: '0.5em' }} />
         {/* </Typography> */}
         {(project.githubUrl != null) && (
