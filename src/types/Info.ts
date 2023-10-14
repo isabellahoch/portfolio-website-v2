@@ -1,4 +1,9 @@
-export type BadgeEntry = Record<string, string>;
+export interface BadgeEntry {
+  id: string
+  title: string
+  url: string
+  category: string
+}
 
 export interface Info {
   loading: boolean

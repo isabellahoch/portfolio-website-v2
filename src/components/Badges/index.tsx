@@ -1,9 +1,14 @@
 import React from 'react';
 import Badge from './Badge';
 
-type Entry = Record<string, string>;
+interface BadgeEntry {
+  id: string
+  title: string
+  url: string
+  category: string
+}
 
-type Section = Record<string, Entry>;
+type Section = Record<string, BadgeEntry[]>;
 
 interface Props {
   badges: Section | object
@@ -18,7 +23,7 @@ const BadgesSection: React.FC<Props> = ({ badges }) => {
           <h2>{sectionKey}</h2>
           <div>
             {Object.entries(data[sectionKey]).map(([key, val]) => (
-              <Badge key={key} badgeName={key} badgeUrl={val} />
+              <Badge key={key} badgeName={val.title} badgeUrl={val.url} />
             ))}
           </div>
         </div>

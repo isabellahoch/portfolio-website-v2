@@ -5,7 +5,12 @@ import {
   FETCH_IMAGE_REQUEST, FETCH_IMAGE_SUCCESS, FETCH_IMAGE_FAILURE,
 } from '../types/infoActions';
 
-type BadgeEntry = Record<string, string>;
+export interface BadgeEntry {
+  id: string
+  title: string
+  url: string
+  category: string
+}
 
 export interface InfoState {
   loading: boolean
