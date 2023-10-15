@@ -40,7 +40,7 @@ const Chatbot: React.FC = () => {
   };
 
   useEffect(() => {
-    const welcomeMessage = 'Hello and welcome to my portfolio website! It is currently being upgraded from [Flask/Python](https://github.com/isabellahoch/flask-portfolio) to [React/TypeScript](https://github.com/isabellahoch/portfolio-website-v2) (expected to be complete August 2023). What can I help you with?';
+    const welcomeMessage = 'Hello and welcome to my portfolio website! What can I help you with?';
     addResponseMessage(welcomeMessage);
     setConversation([...conversation, `Bot: ${welcomeMessage}`]);
   }, []);

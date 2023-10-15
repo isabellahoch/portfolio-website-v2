@@ -7,6 +7,7 @@ interface DuolingoUser {
 }
 
 export default async function fetchDuolingoStreakLength(username: string): Promise<number> {
+  console.log('working!');
   try {
     const response = await axios.get<DuolingoUser>(
       `https://www.duolingo.com/api/1/users/show?username=${username}`,

@@ -9,16 +9,11 @@ const DuolingoStreak: React.FC = () => {
   const [streakLength, setStreakLength] = useState<number | null>(null);
 
   useEffect(() => {
-    async function fetchDuolingoStreak() {
-      try {
-        const length = await fetchDuolingoStreakLength('isabellahawk');
-        setStreakLength(length);
-      } catch (error) {
-      // Handle errors if needed
-      }
-    }
-
-    fetchDuolingoStreak();
+    fetchDuolingoStreakLength('isabellahawk').then((result) => {
+      setStreakLength(result);
+    }).catch((error) => {
+      console.error(error);
+    });
   }, []);
 
   return (
@@ -35,7 +30,7 @@ const DuolingoStreak: React.FC = () => {
           </Box>
           <Box sx={{ marginLeft: '16px' }}>
             <img
-              src="duolingo-icon.png" // Replace with the actual Duolingo icon image URL
+              src="https://img.shields.io/badge/Duolingo-%234DC730.svg?style=for-the-badge&logo=Duolingo&logoColor=white"
               alt="Duolingo Icon"
               width={32}
               height={32}
