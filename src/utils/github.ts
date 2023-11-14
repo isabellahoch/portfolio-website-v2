@@ -15,7 +15,7 @@ import { load } from 'cheerio';
 // const GITHUB_URL = 'https://urlreq.appspot.com/req?method=GET&url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
 // const GITHUB_URL = 'https://cors-proxy.htmldriven.com/?url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
 
-const GITHUB_URL = '/github_contributions.html';
+const GITHUB_URL = `${process.env.PUBLIC_URL}/github_contributions.html`;
 
 export interface Datapoint {
   x: number
@@ -43,43 +43,33 @@ export const monthNames = [
   'Dec',
 ];
 
-const UPWARD_CONSTANT = 5;
+const UPWARD_CONSTANT = 3;
 
-function parseContributions(input: string): Datapoint {
-  const regex1 = /(\d+)\s*contribution[s]? on (.+)/;
-  const regex2 = /No contributions on (.+)/;
+function parseContributions(text: string): Datapoint {
+  const refDate = new Date();
 
-  const matches1 = input.match(regex1);
-  const matches2 = input.match(regex2);
+  const regex = /(\d+)\s*contributions\s+on\s+(\w+\s+\d{1,2}(?:st|nd|rd|th))/i;
+  const match = text.match(regex);
 
-  let contributions = 0;
-  let dateStr = '';
+  if (match != null) {
+    const contributions = parseInt(match[1], 10);
+    const dateString = match[2].replace(/(\d+)(st|nd|rd|th)/, '$1');
+    const date = new Date(`${dateString}`);
 
-  if (matches1 !== null) {
-    contributions = parseInt(matches1[1], 10);
-    if (Number.isNaN(contributions)) {
-      contributions = 0;
+    refDate.setFullYear(date.getFullYear());
+
+    const year = (new Date()).getFullYear();
+
+    if (date.getTime() > refDate.getTime()) {
+      date.setFullYear(year - 1);
+    } else {
+      date.setFullYear(year);
     }
-    // eslint-disable-next-line prefer-destructuring
-    dateStr = matches1[2];
-  } else if (matches2 !== null) {
-    // eslint-disable-next-line prefer-destructuring
-    dateStr = matches2[1];
-  }
 
-  const dateObject = new Date(dateStr);
-
-  try {
-    return {
-      x: dateObject.getTime(),
-      y: UPWARD_CONSTANT + contributions,
-    };
-  } catch {
-    return {
-      x: 0,
-      y: 5,
-    };
+    return { x: date.getTime(), y: UPWARD_CONSTANT + contributions };
   }
+  // No match found
+  return { x: 0, y: UPWARD_CONSTANT };
 }
 
 export const getActivity = async (): Promise<ActivityResult> => {
@@ -121,7 +111,9 @@ export const getActivity = async (): Promise<ActivityResult> => {
 
     // Loop through HTML elements and generate activity data
     html('.ContributionCalendar-day .sr-only').each((_i, el) => {
+      // console.log('el', html(el).text());
       const parsedDataPoint = parseContributions(html(el).text());
+      // console.log('pdt', parsedDataPoint);
       // eslint-disable-next-line max-len
       // if (!Number.isNaN(parsedDataPoint.x) && !Number.isNaN(parsedDataPoint.y) && parsedDataPoint.x !== 0 && parsedDataPoint.x >= ref.getTime()) {
       //   activityData.push(parsedDataPoint);
