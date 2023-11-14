@@ -84,9 +84,9 @@ function parseContributions(input: string): Datapoint {
 
 export const getActivity = async (): Promise<ActivityResult> => {
   try {
-    // get reference date 1 month ago in UTC
+    // get reference date 3 months ago in UTC
     const ref = new Date();
-    ref.setDate(ref.getDate() - 31);
+    ref.setDate(ref.getDate() - 90);
 
     // Request GitHub contribution data
     axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
