@@ -9,7 +9,7 @@ import { type RootState } from '../../reducers';
 import { fetchAbout, fetchBadges } from '../../actions/infoActions';
 import BadgesSection from '../Badges';
 import SocialMediaIcons from '../SocialMediaIcons';
-import DuolingoStreak from '../DuolingoStreak';
+// import DuolingoStreak from '../DuolingoStreak';
 import './index.css';
 
 const About: React.FC = () => {
@@ -53,7 +53,7 @@ const About: React.FC = () => {
                 {aboutInfo}
               </Typography>
               <SocialMediaIcons />
-              <DuolingoStreak />
+              {/* <DuolingoStreak /> */}
             </Box>
           </Grid>
         </Grid>
