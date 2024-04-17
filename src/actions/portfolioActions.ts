@@ -29,8 +29,8 @@ export const fetchProjectsFailure = (error: string): FetchProjectsFailureAction 
   payload: error,
 });
 
-const API_KEY = process.env.REACT_APP_API_KEY != null ? process.env.REACT_APP_API_KEY : '';
-const API_URL = process.env.REACT_APP_API_URL != null ? process.env.REACT_APP_API_URL : '';
+const API_KEY = import.meta.env.VITE_API_KEY != null ? import.meta.env.VITE_API_KEY : '';
+const API_URL = import.meta.env.VITE_API_URL != null ? import.meta.env.VITE_API_URL : '';
 
 export const fetchProjects = (): ThunkAction<void, RootState, unknown, PortfolioAction> => async (dispatch) => {
   dispatch(fetchProjectsRequest());

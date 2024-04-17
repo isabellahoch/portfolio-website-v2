@@ -15,7 +15,7 @@ import { load } from 'cheerio';
 // const GITHUB_URL = 'https://urlreq.appspot.com/req?method=GET&url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
 // const GITHUB_URL = 'https://cors-proxy.htmldriven.com/?url=https%3A%2F%2Fgithub.com%2Fusers%2Fisabellahoch%2Fcontributions';
 
-const GITHUB_URL = `${process.env.PUBLIC_URL}/github_contributions.html`;
+const GITHUB_URL = `${import.meta.env.VITE_PUBLIC_URL}/github_contributions.html`;
 
 export interface Datapoint {
   x: number
