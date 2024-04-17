@@ -1,11 +1,11 @@
 import { createTheme } from '@mui/material/styles';
 
 const colors = {
-  mainBackground: '#f5f1e9',
-  paperBackground: '#ffffff',
-  primaryColor: '#36290c',
-  textPrimary: '#4d4739',
-  textSecondary: '#dec17e',
+  mainBackground: '#ebeae8',
+  paperBackground: '#fcfcf7',
+  primaryColor: '#a19e92',
+  textPrimary: '#171610',
+  textSecondary: '#29271e',
 };
 
 const neutralTheme = createTheme({
